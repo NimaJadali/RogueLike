@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 506491790}
   - component: {fileID: 506491792}
   - component: {fileID: 506491791}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_medium_thick_ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 570137240}
   - component: {fileID: 570137242}
   - component: {fileID: 570137241}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_float_small_ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 670739875}
   - component: {fileID: 670739877}
   - component: {fileID: 670739876}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_float_small_ground (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 901603081}
   - component: {fileID: 901603083}
   - component: {fileID: 901603082}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_float_medium_ground_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 928766300}
   - component: {fileID: 928766302}
   - component: {fileID: 928766301}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_float_medium_ground_2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 1131606448}
   - component: {fileID: 1131606450}
   - component: {fileID: 1131606449}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_float_small_ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1787,7 +1787,7 @@ GameObject:
   - component: {fileID: 1353302856}
   - component: {fileID: 1353302857}
   - component: {fileID: 1353302858}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_large_ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1898,6 +1898,7 @@ GameObject:
   - component: {fileID: 1416004474}
   - component: {fileID: 1416004473}
   - component: {fileID: 1416004475}
+  - component: {fileID: 1416004476}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1966,7 +1967,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1429863515}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2024,15 +2026,70 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1416004476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416004470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec3f624668f1447a6f64b4a1b4008c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  speed: 6
+  jumpForce: 8
+  feetPos: {fileID: 1429863515}
+  checkRadius: 0.1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpTime: 0.2
+  maxHealth: 10
+--- !u!1 &1429863514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429863515}
+  m_Layer: 0
+  m_Name: feet_pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1429863515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429863514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1416004472}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1487212116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,7 +2101,7 @@ GameObject:
   - component: {fileID: 1487212117}
   - component: {fileID: 1487212119}
   - component: {fileID: 1487212118}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_float_small_ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2415,7 +2472,7 @@ GameObject:
   - component: {fileID: 1861866165}
   - component: {fileID: 1861866167}
   - component: {fileID: 1861866166}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_float_medium_ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2524,7 +2581,7 @@ GameObject:
   - component: {fileID: 2098748339}
   - component: {fileID: 2098748341}
   - component: {fileID: 2098748340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swamp_float_small_ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
