@@ -7,6 +7,7 @@ public class player_controller : MonoBehaviour
     public Animator animator;
     Rigidbody2D rigidbody2d;
     BoxCollider2D playerCollider;
+    SpriteRenderer _renderer;
     public float speed = 2.8f;
     public float jumpForce;
     float horizontal;
@@ -31,8 +32,13 @@ public class player_controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _renderer = GetComponent<SpriteRenderer>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
+        if (_renderer == null)
+        {
+            Debug.LogError("Player Sprite is missing a renderer");
+        }
         //currentHealth = maxHealth;
         //healthBar.SetMaxhealth(currentHealth);
     }
@@ -104,12 +110,12 @@ public class player_controller : MonoBehaviour
     {
         // Switch the way the player is labelled as facing
         facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0);
+        _renderer.flipX = true;
     }
     void FlipRight()
     {
         // Switch the way the player is labelled as facing
         facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0);
+        _renderer.flipX = false;
     }
 }
